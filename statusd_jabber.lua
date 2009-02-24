@@ -1,0 +1,2 @@
+
+statusd.inform("jabber", "")
