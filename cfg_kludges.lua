@@ -3,50 +3,58 @@
 --
 
 defwinprop{
-    class = "Xpdf",
-    instance = "openDialog_popup",
-    ignore_cfgrq = true,
+   class = "Xpdf",
+   instance = "openDialog_popup",
+   ignore_cfgrq = true,
 }
 
 
 -- Put all dockapps in the statusbar's systray, also adding the missing
 -- size hints necessary for this to work.
 defwinprop{
-    is_dockapp = true,
-    statusbar = "systray",
-    max_size = { w = 64, h = 64},
-    min_size = { w = 64, h = 64},
+   is_dockapp = true,
+   statusbar = "systray",
+   max_size = { w = 64, h = 64},
+   min_size = { w = 64, h = 64},
 }
 
 defwinprop{
-    class = "Firefox-bin",
-    target = "main",
+   class = "Firefox-bin",
+   target = "main",
+}
+defwinprop{
+   class = "Iceweasel",
+   target = "main",
+}
+defwinprop{
+   class = "Iceweasel",
+   instance = "Dialog",
+   float = true
+}
+defwinprop{
+   class = "Opera",
+   instance = "opera",
+   target = "main",
 }
 
 defwinprop{
-    class = "Opera",
-    instance = "opera",
-    target = "main",
+   class = "Emacs",
+   instance = "emacs",
+   target = "emacs",
 }
 
 defwinprop{
-    class = "Emacs",
-    instance = "emacs",
-    target = "emacs",
+   class = "Emacs",
+   instance = "emacs",
+   name = "Question",
+   float = true,
 }
 
 defwinprop{
-    class = "Emacs",
-    instance = "emacs",
-    name = "Question",
-    float = true,
-}
-
-defwinprop{
-    class = "Emacs",
-    instance = "emacs",
-    name = "GNUS",
-    target = "gnus",
+   class = "Emacs",
+   instance = "emacs",
+   name = "GNUS",
+   target = "gnus",
 }
 
 defwinprop{
@@ -61,4 +69,8 @@ defwinprop{
    instance = "urxvt",
    name = "stas*",
    target = "main",
+}
+defwinprop{
+   class = "Okular",
+   target = "5",
 }
