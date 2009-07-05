@@ -38,7 +38,7 @@ mod_statusbar.create{
     --
     --template="[ %date || load:% %>load || mail:% %>mail_new/%>mail_total ] %filler%systray",
     --template="[ %date || load: %05load_1min || mail: %02mail_new/%02mail_total ] %filler%systray",
-   template="[%date | %load | j: %jabber | %irc ] %filler%systray",
+   template="[%date | %load | m: %mail | j: %jabber | %irc ] %mpd %filler%systray",
 }
 
 
@@ -79,10 +79,9 @@ mod_statusbar.launch_statusd{
     -- files = { work = "/path/to/work_email", junk = "/path/to/junk" }
     --
     -- Don't use the keyword 'spool' as it's reserved for mbox.
-    mail={
-        --update_interval=60*1000,
-        --mbox=os.getenv("MAIL"),
-        --files={},
-    },
+    -- mail={
+    --     --update_interval=60*1000,
+    --     --mbox=os.getenv("MAIL"),
+    --     --files={},
+    -- },
 }
-
