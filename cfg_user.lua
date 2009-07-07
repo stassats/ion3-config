@@ -8,15 +8,6 @@ defbindings("WMPlex", {
 	       kpress("Mod4+f", "ioncore.exec_on(_, 'firefox')"),
 	       kpress("Mod4+o", "ioncore.exec_on(_, 'opera')"),
 
-	       -- mpd
-	       kpress("Mod4+BackSpace", "mpd_command('stop')"),
-	       kpress("Mod4+p", "mpd_command('toggle')"),
-	       kpress("Mod4+period", "mpd_command('next', true)"),
-	       kpress("Mod4+comma", "mpd_command('prev', true)"),
-	       kpress("Mod4+i", "display_mpd()"),
-               kpress("XF86Forward", "mpd_command('volume +5')"),
-	       kpress("XF86Back", "mpd_command('volume -5')"),
-
 	       kpress("Mod4+z", "dict_lookup(_)"),
 	    })
 

@@ -202,7 +202,7 @@ defbindings("WFrame", {
 
 defbindings("WFrame.toplevel", {
     bdoc("Query for a client window to attach."),
-    kpress("Mod4+A", "mod_query.query_attachclient(_)"),
+    kpress("Mod1+Mod4+A", "mod_query.query_attachclient(_)"),
     
     submap(META.."K", {
         -- Display tab numbers when modifiers are released
