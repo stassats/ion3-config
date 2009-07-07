@@ -9,6 +9,8 @@ defbindings("WMPlex", {
 	       kpress("Mod4+o", "ioncore.exec_on(_, 'opera')"),
 
 	       kpress("Mod4+z", "dict_lookup(_)"),
+
+               kpress("XF86Mail", "ioncore.exec('sleep 0.1;  xset dpms force standby')"),
 	    })
 
 function dict_lookup (ws)
