@@ -1,0 +1,1 @@
+statusd.inform("mpd", "")

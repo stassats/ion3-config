@@ -22,7 +22,7 @@ function status(command)
 
    if data == nil or string.sub(data, 1, 6) == 'volume' then
       mpd:close()
-      return "No song is playing"
+      return "No song is playing."
    end
 
    local song = data
@@ -31,7 +31,7 @@ function status(command)
    mpd:close()
 
    if data == nil then
-      return "Error.."
+      return "Error..."
    end
 
    if string.sub(data, 1, 8) == "[paused]" then
