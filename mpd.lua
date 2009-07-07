@@ -15,14 +15,14 @@ function status(command)
    local mpd = io.popen("mpc --format '[%track%) %artist% - %title% (%album%; %date%)]|[%file%]' " ..
          (command or ""))
    if mpd == nil then
-      return "No song playing"
+      return "MPD is not running."
    end
 
    local data = mpd:read()
 
    if data == nil or string.sub(data, 1, 6) == 'volume' then
       mpd:close()
-      return "No song playing"
+      return "No song is playing"
    end
 
    local song = data
