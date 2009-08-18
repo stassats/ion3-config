@@ -8,7 +8,7 @@ defbindings("WMPlex", {
                kpress("XF86Forward", "mpd_command('+5', volume)"),
 	       kpress("XF86Back", "mpd_command('-5', volume)"),
 
-               kpress("Mod4+i", "inform_mpd(status())"),
+               kpress("XF86Reload", "inform_mpd(status())"),
             })
 
 function status(command)

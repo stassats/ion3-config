@@ -3,7 +3,8 @@ dopath("mpd")
 
 defbindings("WMPlex", {
 	       kpress("Mod4+r", "ioncore.exec_on(_, 'urxvtcd -e screen -dRR')"),
-               kpress("Mod4+Mod1+r", "ioncore.exec_on(_, 'urxvtcd -e ssh slack -X')"),
+               kpress("Mod4+Mod1+r", 
+                      "ioncore.exec_on(_, 'urxvtcd -e ssh -tX slack LANG=ru_RU.UTF-8 screen -dRR')"),
 	       kpress("Mod4+e", "ioncore.exec_on(_, 'emacs')"),
 	       kpress("Mod4+f", "ioncore.exec_on(_, 'firefox')"),
 	       kpress("Mod4+o", "ioncore.exec_on(_, 'opera')"),
