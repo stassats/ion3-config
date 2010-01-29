@@ -2,11 +2,11 @@
 -- Options to get some programs work more nicely (or at all)
 --
 
-defwinprop{
-   class = "Xpdf",
-   instance = "openDialog_popup",
-   ignore_cfgrq = true,
-}
+-- defwinprop{
+--    class = "Xpdf",
+--    instance = "openDialog_popup",
+--    ignore_cfgrq = true,
+-- }
 
 
 -- Put all dockapps in the statusbar's systray, also adding the missing
@@ -19,12 +19,17 @@ defwinprop{
 }
 
 defwinprop{
-   class = "Firefox-bin",
+   class = "Firefox",
    target = "main",
 }
 defwinprop{
    class = "Iceweasel",
    target = "main",
+}
+defwinprop{
+   class = "Firefox",
+   instance = "Dialog",
+   float = true
 }
 defwinprop{
    class = "Iceweasel",
@@ -36,7 +41,10 @@ defwinprop{
    instance = "opera",
    target = "main",
 }
-
+defwinprop{
+   class = "Chrome",
+   target = "main",
+}
 defwinprop{
    class = "Emacs",
    instance = "emacs",
@@ -72,5 +80,10 @@ defwinprop{
 }
 defwinprop{
    class = "Okular",
+   target = "5",
+}
+
+defwinprop{
+   class = "Xpdf",
    target = "5",
 }

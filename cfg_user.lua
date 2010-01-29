@@ -8,11 +8,21 @@ defbindings("WMPlex", {
 	       kpress("Mod4+e", "ioncore.exec_on(_, 'emacs')"),
 	       kpress("Mod4+f", "ioncore.exec_on(_, 'firefox')"),
 	       kpress("Mod4+o", "ioncore.exec_on(_, 'opera')"),
+               kpress("Mod4+c", "ioncore.exec_on(_, 'chrome')"),
 
 	       kpress("Mod4+z", "dict_lookup(_)"),
 
                kpress("XF86Mail", "ioncore.exec('sleep 0.1;  xset dpms force standby')"),
+               kpress("Scroll_Lock", "toggle_display()")
 	    })
+
+function toggle_display()
+   status = os.execute("/home/stas/c/bin/toggle-displays")
+
+   if status == 0 then
+      ioncore.restart()
+   end
+end
 
 function dict_lookup (ws)
    ioncore.request_selection(
