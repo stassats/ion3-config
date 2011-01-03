@@ -5,8 +5,8 @@ defbindings("WMPlex", {
 	       kpress("Mod4+period", "mpd_command('next', status)"),
 	       kpress("Mod4+comma", "mpd_command('prev', status)"),
 
-               kpress("XF86Forward", "mpd_command('+5', volume)"),
-	       kpress("XF86Back", "mpd_command('-5', volume)"),
+               kpress("XF86Forward", "change_volume(5)"),
+	       kpress("XF86Back", "change_volume(-5)"),
 
                kpress("XF86Reload", "inform_mpd(status())"),
             })
@@ -93,4 +93,31 @@ function mpd_command(command, inform)
    else
       ioncore.exec("mpc " .. command)
    end
+end
+
+function read_volume(out)
+   out:read()
+   out:read()
+   local values = out:read()
+   out:close()
+   local b, e = values:find("%d+,")
+
+   return tonumber(values:sub(b, e - 1))
+end
+
+function get_volume()
+   return read_volume(io.popen("amixer cget name='PCM Playback Volume'"))
+end
+
+function change_volume(amount)
+   local volume = get_volume() + amount
+   if volume > 100 then
+      volume = 100
+   elseif volume < 0 then
+      volume = 0
+   end
+   
+   inform_mpd(string.format("Volume: %d%%",
+              read_volume(
+                 io.popen("amixer cset name='PCM Playback Volume' " .. volume))))
 end
