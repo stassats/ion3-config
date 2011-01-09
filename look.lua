@@ -24,7 +24,7 @@ de.defstyle("*", {
     spacing = 0,
     border_style = "elevated",
     
-    font = "-*-helvetica-medium-r-normal-*-14-*-*-*-*-*-*-ISO10646-1",
+    font = "-*-fixed-medium-r-normal-*-14-*-*-*-*-*-*-ISO10646-1",
     text_align = "center",
 })
 
@@ -48,7 +48,7 @@ de.defstyle("frame-tiled", {
 
 de.defstyle("tab", {
     based_on = "*",
-    font = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-ISO10646-1",
+    font = "-*-fixed-medium-r-normal-*-12-*-*-*-*-*-*-ISO10646-1",
     
     de.substyle("active-selected", {
         -- Violet tab
@@ -77,7 +77,7 @@ de.defstyle("tab-menuentry", {
 
 de.defstyle("tab-menuentry-big", {
     based_on = "tab-menuentry",
-    font = "-*-helvetica-medium-r-normal-*-17-*-*-*-*-*-iso10646-1",
+    font = "-*-fixed-medium-r-normal-*-17-*-*-*-*-*-iso10646-1",
     padding_pixels = 7,
 })
 

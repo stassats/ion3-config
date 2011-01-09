@@ -2,16 +2,16 @@ defbindings("WMPlex", {
 	       kpress("Mod4+BackSpace", "mpd_command('stop')"),
 	       kpress("Mod4+p", "mpd_command('toggle')"),
 
-	       kpress("Mod4+period", "mpd_command('next', status)"),
-	       kpress("Mod4+comma", "mpd_command('prev', status)"),
+	       kpress("Mod4+period", "mpd_command('next', mpd_status)"),
+	       kpress("Mod4+comma", "mpd_command('prev', mpd_status)"),
 
                kpress("XF86Forward", "change_volume(5)"),
 	       kpress("XF86Back", "change_volume(-5)"),
 
-               kpress("XF86Reload", "inform_mpd(status())"),
+               kpress("XF86Reload", "inform_mpd(mpd_status())"),
             })
 
-function status(command)
+function mpd_status(command)
    local mpd = io.popen("mpc --format '[%track%) %artist% - %title% (%album%; %date%)]|[%file%]' " ..
          (command or ""))
    if mpd == nil then
@@ -88,8 +88,8 @@ end
 function mpd_command(command, inform)
    if inform == volume then
       inform_mpd(volume(command))
-   elseif inform == status then
-      inform_mpd(status(command))
+   elseif inform == mpd_status then
+      inform_mpd(mpd_status(command))
    else
       ioncore.exec("mpc " .. command)
    end
