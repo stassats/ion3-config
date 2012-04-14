@@ -13,7 +13,7 @@ defbindings("WMPlex", {
 
 	       kpress("Mod4+z", "dict_lookup(_)"),
 
-               kpress("Print", "ioncore.exec('sleep 0.1;  xset dpms force standby')"),
+               kpress("Print", "ioncore.exec('sleep 0.1;  xset dpms force off')"),
                kpress("Scroll_Lock", "toggle_display(_)"),
                kpress("Control+F4", "ioncore.exec('susp')"),
                kpress("Mod4+F2", "repl(_)"),
@@ -132,9 +132,9 @@ end
 
 function resize_scratch()
    if get_resolution() == 3840 then
-      move_scratch(2120, 100, 1600, 900)
+      move_scratch(2200, 160, 1361, 744)
    else
-      move_scratch(200, 100, 1600, 900)
+      move_scratch(300, 160, 1361, 744)
    end
 end
 
