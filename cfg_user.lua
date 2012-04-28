@@ -125,7 +125,7 @@ function toggle_display(ws)
    end
    
    if status == 0 then
-      move_scratch(5,5,100,100)
+      move_scratch(0,0,1361,744)
       ioncore.restart()
    end
 end
