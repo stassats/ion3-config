@@ -1,6 +1,11 @@
 dopath("mod_ionflux")
 dopath("mpd")
 
+function get_hostname()
+   local out = io.popen("hostname")
+   return out:read()
+end
+
 defbindings("WMPlex", {
 	       kpress("Mod4+r", "ioncore.exec_on(_, 'urxvtcd -e screen -dRR main')"),
                kpress("Mod4+Mod1+r", 
@@ -17,8 +22,16 @@ defbindings("WMPlex", {
                kpress("Scroll_Lock", "toggle_display(_)"),
                kpress("Control+F4", "ioncore.exec('susp')"),
                kpress("Mod4+F2", "repl(_)"),
+               kpress("Mod4+F5", "start_all(_)"),
                -- kpress("XF86WWW", "show_weather()")
 	    })
+
+function start_all(ws)
+   ioncore.exec_on(ws, 'emacs')
+   ioncore.exec_on(ws, 'opera')
+   ioncore.exec_on(ws, 'gnus')
+   ioncore.exec_on(ws, 'urxvtcd -e screen -dRR main')
+end
 
 function dict_lookup (ws)
    ioncore.request_selection(
@@ -104,7 +117,7 @@ function get_resolution()
    local line = out:read()
    
    while line do
-      local b, e, w, h = string.find(line, "default connected (%d+)x(%d+)")
+      local b, e, w, h = string.find(line, "current (%d+) x (%d+)")
 
       if w and h then
          return tonumber(w), tonumber(h)

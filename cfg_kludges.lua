@@ -20,11 +20,11 @@ defwinprop{
 
 defwinprop{
    class = "Firefox",
-   target = "main",
+   target = "browser",
 }
 defwinprop{
    class = "Iceweasel",
-   target = "main",
+   target = "browser",
 }
 defwinprop{
    class = "Firefox",
@@ -39,16 +39,16 @@ defwinprop{
 defwinprop{
    class = "Opera",
    instance = "opera",
-   target = "main",
+   target = "browser",
 }
 defwinprop{
    class = "Chrome",
-   target = "main",
+   target = "browser",
 }
 defwinprop{
    class = "Emacs",
    instance = "emacs",
-   target = "emacs",
+   target = "emacs-main",
 }
 
 defwinprop{
@@ -78,10 +78,10 @@ defwinprop{
    name = "stas*",
    target = "main",
 }
-defwinprop{
-   class = "Okular",
-   target = "5",
-}
+-- defwinprop{
+--    class = "Okular",
+--    target = "5",
+-- }
 
 defwinprop{
    class = "Xpdf",

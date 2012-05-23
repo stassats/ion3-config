@@ -5,10 +5,10 @@ defbindings("WMPlex", {
 	       kpress("Mod4+period", "mpd_command('next', mpd_status)"),
 	       kpress("Mod4+comma", "mpd_command('prev', mpd_status)"),
 
-               kpress("XF86Forward", "change_volume(5)"),
-	       kpress("XF86Back", "change_volume(-5)"),
+               kpress("XF86AudioLowerVolume", "change_volume(-5)"),
+	       kpress("XF86AudioRaiseVolume", "change_volume(5)"),
 
-               kpress("XF86Reload", "inform_mpd(mpd_status())"),
+               kpress("XF86AudioPrev", "inform_mpd(mpd_status())"),
             })
 
 function mpd_status(command)
