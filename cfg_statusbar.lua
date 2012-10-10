@@ -38,7 +38,7 @@ mod_statusbar.create{
     --
     --template="[ %date || load:% %>load || mail:% %>mail_new/%>mail_total ] %filler%systray",
     --template="[ %date || load: %05load_1min || mail: %02mail_new/%02mail_total ] %filler%systray",
-   template="[%date | %load | m: %mail | j: %jabber | %irc ] %mpd %filler%systray",
+   template="[%date | m: %mail | j: %jabber | %irc ] %mpd %filler%systray",
 }
 
 
@@ -62,13 +62,6 @@ mod_statusbar.launch_statusd{
         }
         --]]
     },      
-
-    -- Load meter
-    load={
-        --update_interval=10*1000,
-        --important_threshold=1.5,
-        --critical_threshold=4.0,
-    },
 
     -- Mail meter
     --
