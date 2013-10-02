@@ -112,15 +112,15 @@ function move_scratch(x, y, w, h)
    ioncore.lookup_region("*scratchpad*"):rqgeom({x=x, y=y, w=w, h=h})
 end
 
-function get_resolution()
+function get_display()
    local out = io.popen("xrandr")
    local line = out:read()
    
    while line do
-      local b, e, w, h = string.find(line, "current (%d+) x (%d+)")
+      local b, e, id = string.find(line, "^(%w.+) connected %d+x%d+")
 
-      if w and h then
-         return tonumber(w), tonumber(h)
+      if id then
+         return id
       end
 
       line = out:read()
@@ -128,26 +128,26 @@ function get_resolution()
 end
 
 function toggle_display(ws)
-   local w = get_resolution()
    local status
+   local offset
 
-   if w == 3840 then
-      status = os.execute("disper -d DFP-1 -e")
+   if  get_display() == "HDMI-0" then
+      status = os.execute("xrandr --output HDMI-0 --off && xrandr --output DVI-I-1 --auto --output DVI-D-0 --auto --output DVI-D-0 --left-of DVI-I-1")
    else
-      status = os.execute("disper -d DFP-2,DFP-0 -e")
+      status = os.execute("xrandr --output DVI-I-1 --off --output DVI-D-0 --off && xrandr --output HDMI-0 --auto")
    end
    
    if status == 0 then
-      move_scratch(0,0,1361,744)
+      move_scratch(0,0,20,30)
       ioncore.restart()
    end
 end
 
 function resize_scratch()
-   if get_resolution() == 3840 then
-      move_scratch(2200, 160, 1361, 744)
-   else
+   if get_display() == "HDMI-0" then
       move_scratch(300, 160, 1361, 744)
+   else
+      move_scratch(2200, 260, 1361, 744)
    end
 end
 
