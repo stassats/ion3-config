@@ -26,18 +26,14 @@ defwinprop{
    class = "Iceweasel",
    target = "browser",
 }
-defwinprop{
-   class = "Firefox",
-   instance = "Dialog",
-   float = true
-}
-defwinprop{
-   class = "Iceweasel",
-   instance = "Dialog",
-   float = true
-}
+
 defwinprop{
    class = "Opera",
+   instance = "opera",
+   target = "browser",
+}
+defwinprop{
+   class = "OperaNext",
    instance = "opera",
    target = "browser",
 }
@@ -48,7 +44,7 @@ defwinprop{
 defwinprop{
    class = "Emacs",
    instance = "emacs",
-   target = "emacs-main",
+   target = "emacs",
 }
 
 defwinprop{
@@ -82,8 +78,3 @@ defwinprop{
 --    class = "Okular",
 --    target = "5",
 -- }
-
-defwinprop{
-   class = "Xpdf",
-   target = "5",
-}

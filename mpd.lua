@@ -116,7 +116,7 @@ function change_volume(amount)
    elseif volume < 0 then
       volume = 0
    end
-   
+
    inform_mpd(string.format("Volume: %d%%",
               read_volume(
                  io.popen("amixer cset name='PCM Playback Volume' " .. volume))))

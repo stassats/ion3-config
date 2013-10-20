@@ -28,7 +28,7 @@ defbindings("WMPlex", {
 
 function start_all(ws)
    ioncore.exec_on(ws, 'emacs')
-   ioncore.exec_on(ws, 'opera')
+   ioncore.exec_on(ws, 'browser')
    ioncore.exec_on(ws, 'gnus')
    ioncore.exec_on(ws, 'urxvtcd -e screen -dRR main')
 end
@@ -132,9 +132,9 @@ function toggle_display(ws)
    local offset
 
    if  get_display() == "HDMI-0" then
-      status = os.execute("xrandr --output HDMI-0 --off && xrandr --output DVI-I-1 --auto --output DVI-D-0 --auto --output DVI-D-0 --left-of DVI-I-1")
+      status = os.execute("xrandr --output HDMI-0 --off --output DVI-I-1 --auto && sleep 0.3 && xrandr --output DVI-D-0 --auto --output DVI-D-0 --left-of DVI-I-1 && xset dpms 600 600 600")
    else
-      status = os.execute("xrandr --output DVI-I-1 --off --output DVI-D-0 --off && xrandr --output HDMI-0 --auto")
+      status = os.execute("xrandr --output DVI-I-1 --off && sleep 0.3 && xrandr --output DVI-D-0 --off --output HDMI-0 --auto && xset s off s noblank dpms 0 0 0 -dpms")
    end
    
    if status == 0 then
